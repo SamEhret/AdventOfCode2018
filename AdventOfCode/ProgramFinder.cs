@@ -16,10 +16,10 @@ namespace AdventOfCode
             input = Console.ReadLine();
             var inputType = string.IsNullOrEmpty(input) ? "solution" : input;
 
-            printProblem(inputId, inputType);
+            PrintProblem(inputId, inputType);
         }
 
-        public void printProblem(string inputId, string inputType)
+        public void PrintProblem(string inputId, string inputType)
         {
             var problemIdSplit = inputId.Split('.');
             var problemId = $"Problem{problemIdSplit[0]}";
