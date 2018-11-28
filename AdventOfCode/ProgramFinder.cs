@@ -6,16 +6,20 @@ namespace AdventOfCode
     {
         public void GetProblem()
         {
+            var input = "";
+
             Console.Write("What problem would you like to see? ");
-            var inputId = Console.ReadLine();
+            input = Console.ReadLine();
+            var inputId = string.IsNullOrEmpty(input) ? "1.1" : input;
 
             Console.Write("Would you like to see the solution, problem, or input? ");
-            var inputType = Console.ReadLine();
+            input = Console.ReadLine();
+            var inputType = string.IsNullOrEmpty(input) ? "solution" : input;
 
             printProblem(inputId, inputType);
         }
 
-        public void printProblem(string inputId, string inputType = "solution")
+        public void printProblem(string inputId, string inputType)
         {
             var problemIdSplit = inputId.Split('.');
             var problemId = $"Problem{problemIdSplit[0]}";
