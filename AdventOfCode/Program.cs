@@ -1,15 +1,11 @@
-﻿using System;
-
-namespace AdventOfCode
+﻿namespace AdventOfCode
 {
     class Program
     {
-        static void Main(string[] args)
+        private static void Main()
         {
-            foreach (var arg in args)
-            {
-                Console.WriteLine(arg);
-            }
+            var programFinder = new ProgramFinder();
+            programFinder.GetProblem();
         }
     }
 }
