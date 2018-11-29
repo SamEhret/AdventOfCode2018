@@ -1,6 +1,6 @@
 ﻿namespace AdventOfCode
 {
-    class PuzzleFinder
+    class InputParser
     {
         public void ParseInput(string inputId, string inputType)
         {

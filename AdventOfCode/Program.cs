@@ -16,8 +16,8 @@ namespace AdventOfCode
             input = Console.ReadLine();
             var inputType = string.IsNullOrEmpty(input) ? "solution" : input;
 
-            var puzzleFinder = new PuzzleFinder();
-            puzzleFinder.ParseInput(inputId, inputType);
+            var inputParser = new InputParser();
+            inputParser.ParseInput(inputId, inputType);
         }
     }
 }
