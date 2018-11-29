@@ -4,7 +4,7 @@
     {
         public static string Part1()
         {
-            return "testtesttest";
+            return null;
         }
 
         public static string Part2()

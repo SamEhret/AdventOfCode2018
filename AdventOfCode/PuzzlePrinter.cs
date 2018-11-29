@@ -2,29 +2,11 @@
 
 namespace AdventOfCode
 {
-    public class ProgramFinder
+    public class PuzzlePrinter
     {
-        public void GetProblem()
+
+        public void PrintPuzzle(string problemId, string partId, string inputType)
         {
-            var input = "";
-
-            Console.Write("What problem would you like to see? ");
-            input = Console.ReadLine();
-            var inputId = string.IsNullOrEmpty(input) ? "1.1" : input;
-
-            Console.Write("Would you like to see the solution, problem, or input? ");
-            input = Console.ReadLine();
-            var inputType = string.IsNullOrEmpty(input) ? "solution" : input;
-
-            PrintProblem(inputId, inputType);
-        }
-
-        public void PrintProblem(string inputId, string inputType)
-        {
-            var problemIdSplit = inputId.Split('.');
-            var problemId = $"Problem{problemIdSplit[0]}";
-            var partId = $"Part{problemIdSplit[1]}";
-
             if (inputType == "solution")
             {
                 var solution = Activator.CreateInstance(Type.GetType("AdventOfCode.Solutions." + problemId));
