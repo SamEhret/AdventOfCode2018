@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Runtime.Remoting.Messaging;
 
 namespace AdventOfCode
 {
@@ -31,7 +30,7 @@ namespace AdventOfCode
             else
             {
                 Console.Write("Invalid input");
-                Environment.Exit(exitCode:0);
+                Environment.Exit(0);
             }
         }
     }
