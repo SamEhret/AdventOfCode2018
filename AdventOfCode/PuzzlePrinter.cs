@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.Remoting.Messaging;
 
 namespace AdventOfCode
 {
@@ -10,20 +11,21 @@ namespace AdventOfCode
             if (inputType == "solution")
             {
                 var solution = Activator.CreateInstance(Type.GetType("AdventOfCode.Solutions." + problemId));
-                Console.Write(solution.GetType().GetMethod(partId).Invoke(this, null));
+                var methodCall = solution.GetType().GetMethod(partId).Invoke(this, null);
+                Console.Write($"The solution to {problemId}{partId} is: {methodCall}");
             }
 
             else if (inputType == "problem")
             {
                 var solutionProblem = System.IO.File.ReadAllText($"../..\\Problems\\{problemId}{partId}.txt");
-                Console.Write(solutionProblem);
+                Console.Write($"The problem for {problemId}{partId} is: {solutionProblem}");
 
             }
 
             else if (inputType == "input")
             {
                 var solutionInput = System.IO.File.ReadAllText($"../..\\Inputs\\{problemId}{partId}.txt");
-                Console.Write(solutionInput);
+                Console.Write($"The input for {problemId}{partId} is: {solutionInput}");
             }
 
             else
