@@ -11,9 +11,17 @@ namespace AdventOfCode
             var inputParser = new InputParser();
             var puzzlePrinter = new PuzzlePrinter();
 
-            puzzleRequest = GetPuzzleId(puzzleRequest);
-            puzzleRequest = GetPuzzleType(puzzleRequest);
-            puzzlePrinter.PrintPuzzle(inputParser.ParseInput(puzzleRequest));
+            try
+            {
+                puzzleRequest = GetPuzzleId(puzzleRequest);
+                puzzleRequest = GetPuzzleType(puzzleRequest);
+                puzzlePrinter.PrintPuzzle(inputParser.ParseInput(puzzleRequest));
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine($"Something went wrong: {e}");
+                throw;
+            }
         }
 
         public static PuzzleRequest GetPuzzleId(PuzzleRequest puzzleRequest)
