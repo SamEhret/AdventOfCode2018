@@ -4,7 +4,7 @@ using AdventOfCode.Utilities;
 
 namespace AdventOfCode
 {
-    internal class Program
+    internal class AdventOfCode
     {
         private static void Main()
         {
