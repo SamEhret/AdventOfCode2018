@@ -7,9 +7,9 @@ namespace AdventOfCode.Utilities
         public PuzzleRequest ParseInput(PuzzleRequest puzzleRequest)
         {
             var problemIdSplit = puzzleRequest.InputId.Split('.');
-            var leftPadding = new LeftPadding();
+            var padding = new Padding();
 
-            puzzleRequest.ProblemId = leftPadding.LeftPadInputString(problemIdSplit[0]);
+            puzzleRequest.ProblemId = padding.LeftPadInputString(problemIdSplit[0]);
             puzzleRequest.PartId = problemIdSplit[1];
 
             return puzzleRequest;

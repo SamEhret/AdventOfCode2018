@@ -74,6 +74,7 @@
     <Compile Include="Puzzles\Day04\Solution.cs" />
     <Compile Include="Puzzles\Day03\Solution.cs" />
     <Compile Include="Puzzles\Day02\Solution.cs" />
+    <Compile Include="Utilities\LeftPadding.cs" />
     <Compile Include="Utilities\PuzzlePrinter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utilities\InputParser.cs" />

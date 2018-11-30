@@ -1,6 +1,6 @@
 ﻿namespace AdventOfCode.Utilities
 {
-    public class LeftPadding
+    public class Padding
     {
         public string LeftPadInputString(string inputString)
         {
