@@ -26,6 +26,11 @@ namespace AdventOfCode
                     PrintInput(puzzleRequest);
                     break;
                 }
+                default:
+                {
+                    Console.WriteLine("Invalid print type");
+                    break;
+                }
             }
         }
 
@@ -33,8 +38,7 @@ namespace AdventOfCode
         {
             try
             {
-                var solution =
-                    Activator.CreateInstance(Type.GetType("AdventOfCode.Solutions." + puzzleRequest.ProblemId));
+                var solution = Activator.CreateInstance(Type.GetType("AdventOfCode.Solutions." + puzzleRequest.ProblemId));
                 var methodCall = solution.GetType().GetMethod(puzzleRequest.PartId).Invoke(this, null);
                 Console.Write($"The solution to {puzzleRequest.InputId} is: {methodCall}");
             }
@@ -51,18 +55,16 @@ namespace AdventOfCode
 
         public void PrintProblem(PuzzleRequest puzzleRequest)
         {
-                try
-                {
-                    var solutionProblem =
-                        System.IO.File.ReadAllText(
-                            $"../..\\Problems\\{puzzleRequest.ProblemId}{puzzleRequest.PartId}.txt");
-                    Console.Write($"The problem for {puzzleRequest.InputId} is: {solutionProblem}");
-                }
-                catch (Exception e)
-                {
-                    Console.WriteLine(e);
-                    throw;
-                }
+            try
+            {
+                var solutionProblem = System.IO.File.ReadAllText($"../..\\Problems\\{puzzleRequest.ProblemId}{puzzleRequest.PartId}.txt");
+                Console.Write($"The problem for {puzzleRequest.InputId} is: {solutionProblem}");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
         }
 
         public void PrintInput(PuzzleRequest puzzleRequest)
