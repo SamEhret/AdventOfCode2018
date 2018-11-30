@@ -1,4 +1,5 @@
 ﻿using System;
+using AdventOfCode.Utilities;
 using Microsoft.CSharp.RuntimeBinder;
 
 namespace AdventOfCode
@@ -8,40 +9,53 @@ namespace AdventOfCode
 
         public void PrintPuzzle(PuzzleRequest puzzleRequest)
         {
-            switch (puzzleRequest.InputType.problem)
+            switch (puzzleRequest.InputType)
             {
-                case puzzleRequest.InputType.problem
+                case PuzzleType.Solution:
                 {
-
+                    PrintSolution(puzzleRequest);
+                    break;
+                }
+                case PuzzleType.Problem:
+                {
+                    PrintProblem(puzzleRequest);
+                    break;
+                }
+                case PuzzleType.Input:
+                {
+                    PrintInput(puzzleRequest);
+                    break;
                 }
             }
         }
 
-        public void TEST(PuzzleRequest puzzleRequest)
+        public void PrintSolution(PuzzleRequest puzzleRequest)
         {
-            if (puzzleRequest.InputType == "solution")
+            try
             {
-                try
-                {
-                    var solution = Activator.CreateInstance(Type.GetType("AdventOfCode.Solutions." + puzzleRequest.ProblemId));
-                    var methodCall = solution.GetType().GetMethod(puzzleRequest.PartId).Invoke(this, null);
-                    Console.Write($"The solution to {puzzleRequest.InputId} is: {methodCall}");
-                }
-                catch (RuntimeBinderException)
-                {
-                    Console.WriteLine("The requested problem does not exist");
-                }
-                catch (NullReferenceException)
-                {
-                    Console.WriteLine("The requested problem does not exist");
-                }
+                var solution =
+                    Activator.CreateInstance(Type.GetType("AdventOfCode.Solutions." + puzzleRequest.ProblemId));
+                var methodCall = solution.GetType().GetMethod(puzzleRequest.PartId).Invoke(this, null);
+                Console.Write($"The solution to {puzzleRequest.InputId} is: {methodCall}");
+            }
+            catch (RuntimeBinderException)
+            {
+                Console.WriteLine("The requested problem does not exist");
+            }
+            catch (NullReferenceException)
+            {
+                Console.WriteLine("The requested problem does not exist");
             }
 
-            else if (puzzleRequest.InputType == "problem")
-            {
+        }
+
+        public void PrintProblem(PuzzleRequest puzzleRequest)
+        {
                 try
                 {
-                    var solutionProblem = System.IO.File.ReadAllText($"../..\\Problems\\{puzzleRequest.ProblemId}{puzzleRequest.PartId}.txt");
+                    var solutionProblem =
+                        System.IO.File.ReadAllText(
+                            $"../..\\Problems\\{puzzleRequest.ProblemId}{puzzleRequest.PartId}.txt");
                     Console.Write($"The problem for {puzzleRequest.InputId} is: {solutionProblem}");
                 }
                 catch (Exception e)
@@ -49,18 +63,19 @@ namespace AdventOfCode
                     Console.WriteLine(e);
                     throw;
                 }
-            }
+        }
 
-            else if (puzzleRequest.InputType == "input")
+        public void PrintInput(PuzzleRequest puzzleRequest)
+        {
+            try
             {
                 var solutionInput = System.IO.File.ReadAllText($"../..\\Inputs\\{puzzleRequest.ProblemId}{puzzleRequest.PartId}.txt");
                 Console.Write($"The input for {puzzleRequest.InputId} is: {solutionInput}");
             }
-
-            else
+            catch (Exception e)
             {
-                Console.Write("Invalid input");
-                Environment.Exit(0);
+                Console.WriteLine(e);
+                throw;
             }
         }
     }
