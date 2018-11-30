@@ -1,4 +1,4 @@
-﻿namespace AdventOfCode.Puzzles.Day1
+﻿namespace AdventOfCode.Puzzles.Day25
 {
     public class Solution
     {
