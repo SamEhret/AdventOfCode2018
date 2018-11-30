@@ -1,27 +1,25 @@
 ﻿using System;
 using AdventOfCode.Utilities;
-using Microsoft.CSharp.RuntimeBinder;
 
 namespace AdventOfCode
 {
     public class PuzzlePrinter
     {
-
         public void PrintPuzzle(PuzzleRequest puzzleRequest)
         {
             switch (puzzleRequest.InputType)
             {
-                case PuzzleType.solution:
+                case PuzzleType.Solution:
                 {
                     PrintSolution(puzzleRequest);
                     break;
                 }
-                case PuzzleType.problem:
+                case PuzzleType.Problem:
                 {
                     PrintProblem(puzzleRequest);
                     break;
                 }
-                case PuzzleType.input:
+                case PuzzleType.Input:
                 {
                     PrintInput(puzzleRequest);
                     break;
@@ -38,32 +36,34 @@ namespace AdventOfCode
         {
             try
             {
-                var solution = Activator.CreateInstance(Type.GetType("AdventOfCode.Solutions." + puzzleRequest.ProblemId));
-                var methodCall = solution.GetType().GetMethod(puzzleRequest.PartId).Invoke(this, null);
+                var solution = Activator.CreateInstance(Type.GetType("AdventOfCode.Puzzles.Day" + puzzleRequest.ProblemId + ".Solution"));
+                var methodCall = solution.GetType().GetMethod("Part" + puzzleRequest.PartId).Invoke(this, null);
                 Console.Write($"The solution to {puzzleRequest.InputId} is: {methodCall}");
             }
-            catch (RuntimeBinderException)
+            catch (ArgumentNullException)
             {
-                Console.WriteLine("The requested solution does not exist");
+                Console.WriteLine("The requested solution file does not exist");
             }
             catch (NullReferenceException)
             {
-                Console.WriteLine("The requested solution does not exist");
+                Console.WriteLine("The requested solution part does not exist");
             }
-
         }
 
         public void PrintProblem(PuzzleRequest puzzleRequest)
         {
             try
             {
-                var solutionProblem = System.IO.File.ReadAllText($"../..\\Problems\\{puzzleRequest.ProblemId}{puzzleRequest.PartId}.txt");
+                var solutionProblem = System.IO.File.ReadAllText($"../..\\Puzzles\\Day{puzzleRequest.ProblemId}\\ProblemPart{puzzleRequest.PartId}.txt");
                 Console.Write($"The problem for {puzzleRequest.InputId} is: {solutionProblem}");
+            }
+            catch (ArgumentNullException)
+            {
+                Console.WriteLine("The requested problem file does not exist");
             }
             catch (NullReferenceException)
             {
-                Console.WriteLine("The requested problem file does not exist");
-                throw;
+                Console.WriteLine("The requested problem part does not exist");
             }
         }
 
@@ -71,13 +71,16 @@ namespace AdventOfCode
         {
             try
             {
-                var solutionInput = System.IO.File.ReadAllText($"../..\\Inputs\\{puzzleRequest.ProblemId}{puzzleRequest.PartId}.txt");
+                var solutionInput = System.IO.File.ReadAllText($"../..\\Puzzles\\Day{puzzleRequest.ProblemId}\\InputPart{puzzleRequest.PartId}.txt");
                 Console.Write($"The input for {puzzleRequest.InputId} is: {solutionInput}");
+            }
+            catch (ArgumentNullException)
+            {
+                Console.WriteLine("The requested input file does not exist");
             }
             catch (NullReferenceException)
             {
-                Console.WriteLine("The requested problem file does not exist");
-                throw;
+                Console.WriteLine("The requested input part does not exist");
             }
         }
     }

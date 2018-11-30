@@ -48,7 +48,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="InputParser.cs" />
     <Compile Include="PuzzleRequest.cs" />
-    <Compile Include="Solutions\Problem1.cs" />
+    <Compile Include="Puzzles\Day1\Solution.cs" />
     <Compile Include="Utilities\PuzzleType.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -56,10 +56,10 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Content Include="Inputs\Problem1Part1.txt" />
-    <Content Include="Inputs\Problem1Part2.txt" />
-    <Content Include="Problems\Problem1Part1.txt" />
-    <Content Include="Problems\Problem1Part2.txt" />
+    <Content Include="Puzzles\Day1\InputPart1.txt" />
+    <Content Include="Puzzles\Day1\InputPart2.txt" />
+    <Content Include="Puzzles\Day1\ProblemPart1.txt" />
+    <Content Include="Puzzles\Day1\ProblemPart2.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

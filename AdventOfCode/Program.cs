@@ -3,7 +3,7 @@ using AdventOfCode.Utilities;
 
 namespace AdventOfCode
 {
-    class Program
+    internal class Program
     {
         private static void Main()
         {
@@ -26,9 +26,8 @@ namespace AdventOfCode
 
         public static PuzzleRequest GetPuzzleId(PuzzleRequest puzzleRequest)
         {
-            var input = "";
             Console.Write("What problem would you like to see? ");
-            input = Console.ReadLine();
+            var input = Console.ReadLine();
             puzzleRequest.InputId = string.IsNullOrEmpty(input) ? "1.1" : input;
 
             return puzzleRequest;
@@ -36,17 +35,15 @@ namespace AdventOfCode
 
         public static PuzzleRequest GetPuzzleType(PuzzleRequest puzzleRequest)
         {
-            var input = "";
-
             Console.Write("Would you like to see the solution, problem, or input? ");
-            input = Console.ReadLine().ToLower();
+            var input = Console.ReadLine().ToLower();
             if (Enum.IsDefined(typeof(PuzzleType), input))
             {
                 puzzleRequest.InputType = (PuzzleType)Enum.Parse(typeof(PuzzleType), input);
             }
             else
             {
-                puzzleRequest.InputType = PuzzleType.solution;
+                puzzleRequest.InputType = PuzzleType.Solution;
             }
 
             return puzzleRequest;

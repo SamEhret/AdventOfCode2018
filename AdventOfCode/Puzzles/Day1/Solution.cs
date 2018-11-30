@@ -1,6 +1,6 @@
-﻿namespace AdventOfCode.Solutions
+﻿namespace AdventOfCode.Puzzles.Day1
 {
-    public class Problem1
+    public class Solution
     {
         public static string Part1()
         {
