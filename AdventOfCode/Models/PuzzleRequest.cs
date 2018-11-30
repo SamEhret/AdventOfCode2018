@@ -4,9 +4,9 @@ namespace AdventOfCode.Models
 {
     public class PuzzleRequest
     {
-        public string InputId;
-        public PuzzleType InputType;
-        public string ProblemId;
-        public string PartId;
+        public string InputId { get; set; }
+        public PuzzleType InputType { get; set; }
+        public string ProblemId { get; set; }
+        public string PartId { get; set; }
     }
 }
