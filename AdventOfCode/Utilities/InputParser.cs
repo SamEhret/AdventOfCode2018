@@ -7,20 +7,12 @@ namespace AdventOfCode.Utilities
         public PuzzleRequest ParseInput(PuzzleRequest puzzleRequest)
         {
             var problemIdSplit = puzzleRequest.InputId.Split('.');
-            puzzleRequest.ProblemId = LeftPadProblemId(problemIdSplit[0]);
+            var leftPadding = new LeftPadding();
+
+            puzzleRequest.ProblemId = leftPadding.LeftPadInputString(problemIdSplit[0]);
             puzzleRequest.PartId = problemIdSplit[1];
 
             return puzzleRequest;
-        }
-
-        public string LeftPadProblemId(string problemId)
-        {
-            if (problemId.Length == 1)
-            {
-                problemId = "0" + problemId;
-            }
-
-            return problemId;
         }
     }
 }
