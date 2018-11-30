@@ -1,30 +1,60 @@
 ﻿using System;
+using Microsoft.CSharp.RuntimeBinder;
 
 namespace AdventOfCode
 {
     public class PuzzlePrinter
     {
 
-        public void PrintPuzzle(string problemId, string partId, string inputId, string inputType)
+        public void PrintPuzzle(PuzzleRequest puzzleRequest)
         {
-            if (inputType == "solution")
+            switch (puzzleRequest.InputType.problem)
             {
-                var solution = Activator.CreateInstance(Type.GetType("AdventOfCode.Solutions." + problemId));
-                var methodCall = solution.GetType().GetMethod(partId).Invoke(this, null);
-                Console.Write($"The solution to {inputId} is: {methodCall}");
+                case puzzleRequest.InputType.problem
+                {
+
+                }
+            }
+        }
+
+        public void TEST(PuzzleRequest puzzleRequest)
+        {
+            if (puzzleRequest.InputType == "solution")
+            {
+                try
+                {
+                    var solution = Activator.CreateInstance(Type.GetType("AdventOfCode.Solutions." + puzzleRequest.ProblemId));
+                    var methodCall = solution.GetType().GetMethod(puzzleRequest.PartId).Invoke(this, null);
+                    Console.Write($"The solution to {puzzleRequest.InputId} is: {methodCall}");
+                }
+                catch (RuntimeBinderException)
+                {
+                    Console.WriteLine("The requested problem does not exist");
+                }
+                catch (NullReferenceException)
+                {
+                    Console.WriteLine("The requested problem does not exist");
+                }
             }
 
-            else if (inputType == "problem")
+            else if (puzzleRequest.InputType == "problem")
             {
-                var solutionProblem = System.IO.File.ReadAllText($"../..\\Problems\\{problemId}{partId}.txt");
-                Console.Write($"The problem for {inputId} is: {solutionProblem}");
-
+                try
+                {
+                    var solutionProblem = System.IO.File.ReadAllText($"../..\\Problems\\{puzzleRequest.ProblemId}{puzzleRequest.PartId}.txt");
+                    Console.Write($"The problem for {puzzleRequest.InputId} is: {solutionProblem}");
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e);
+                    throw;
+                }
             }
 
-            else if (inputType == "input")
+            else if (puzzleRequest.InputType == "input")
             {
-                var solutionInput = System.IO.File.ReadAllText($"../..\\Inputs\\{problemId}{partId}.txt");
-                Console.Write($"The input for {inputType} is: {solutionInput}");
+                var solutionInput = System.IO.File.ReadAllText($"../..\\Inputs\\{puzzleRequest.ProblemId}{puzzleRequest.PartId}.txt");
+                Console.Write($"The input for {puzzleRequest.InputId} is: {solutionInput}");
             }
 
             else

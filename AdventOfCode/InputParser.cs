@@ -2,14 +2,13 @@
 {
     class InputParser
     {
-        public void ParseInput(string inputId, string inputType)
+        public PuzzleRequest ParseInput(PuzzleRequest puzzleRequest)
         {
-            var problemIdSplit = inputId.Split('.');
-            var problemId = $"Problem{problemIdSplit[0]}";
-            var partId = $"Part{problemIdSplit[1]}";
+            var problemIdSplit = puzzleRequest.InputId.Split('.');
+            puzzleRequest.ProblemId = $"Problem{problemIdSplit[0]}";
+            puzzleRequest.PartId = $"Part{problemIdSplit[1]}";
 
-            var puzzlePrinter = new PuzzlePrinter();
-            puzzlePrinter.PrintPuzzle(problemId, partId, inputType);
+            return puzzleRequest;
         }
     }
 }

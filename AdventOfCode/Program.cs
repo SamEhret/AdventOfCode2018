@@ -1,4 +1,5 @@
 ﻿using System;
+using AdventOfCode.Utilities;
 
 namespace AdventOfCode
 {
@@ -6,18 +7,41 @@ namespace AdventOfCode
     {
         private static void Main()
         {
-            var input = "";
+            var puzzleRequest = new PuzzleRequest();
+            var inputParser = new InputParser();
+            var puzzlePrinter = new PuzzlePrinter();
 
+            puzzleRequest = GetPuzzleId(puzzleRequest);
+            puzzleRequest = GetPuzzleType(puzzleRequest);
+            puzzlePrinter.PrintPuzzle(inputParser.ParseInput(puzzleRequest));
+        }
+
+        public static PuzzleRequest GetPuzzleId(PuzzleRequest puzzleRequest)
+        {
+            var input = "";
             Console.Write("What problem would you like to see? ");
             input = Console.ReadLine();
-            var inputId = string.IsNullOrEmpty(input) ? "1.1" : input;
+            puzzleRequest.InputId = string.IsNullOrEmpty(input) ? "1.1" : input;
+
+            return puzzleRequest;
+        }
+
+        public static PuzzleRequest GetPuzzleType(PuzzleRequest puzzleRequest)
+        {
+            var inputInt = 1;
 
             Console.Write("Would you like to see the solution, problem, or input? ");
-            input = Console.ReadLine();
-            var inputType = string.IsNullOrEmpty(input) ? "solution" : input;
+            inputInt = Convert.ToInt32(Console.ReadLine());
+            if (Enum.IsDefined(typeof(PuzzleType), inputInt))
+            {
+                puzzleRequest.InputType = (PuzzleType)inputInt;
+            }
+            else
+            {
+                puzzleRequest.InputType = PuzzleType.Solution;
+            }
 
-            var inputParser = new InputParser();
-            inputParser.ParseInput(inputId, inputType);
+            return puzzleRequest;
         }
     }
 }
