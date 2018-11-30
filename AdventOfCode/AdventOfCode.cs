@@ -21,7 +21,6 @@ namespace AdventOfCode
             catch (Exception e)
             {
                 Console.WriteLine($"Something went wrong: {e}");
-                throw;
             }
         }
 
