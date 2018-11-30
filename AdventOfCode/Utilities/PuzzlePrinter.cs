@@ -1,7 +1,7 @@
 ﻿using System;
-using AdventOfCode.Utilities;
+using AdventOfCode.Models;
 
-namespace AdventOfCode
+namespace AdventOfCode.Utilities
 {
     public class PuzzlePrinter
     {

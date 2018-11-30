@@ -1,4 +1,5 @@
 ﻿using System;
+using AdventOfCode.Models;
 using AdventOfCode.Utilities;
 
 namespace AdventOfCode

@@ -1,6 +1,6 @@
 ﻿using AdventOfCode.Utilities;
 
-namespace AdventOfCode
+namespace AdventOfCode.Models
 {
     public class PuzzleRequest
     {

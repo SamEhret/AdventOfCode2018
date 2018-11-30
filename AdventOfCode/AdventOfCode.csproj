@@ -44,10 +44,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Program.cs" />
-    <Compile Include="PuzzlePrinter.cs" />
+    <Compile Include="Utilities\PuzzlePrinter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="InputParser.cs" />
-    <Compile Include="PuzzleRequest.cs" />
+    <Compile Include="Utilities\InputParser.cs" />
+    <Compile Include="Models\PuzzleRequest.cs" />
     <Compile Include="Puzzles\Day1\Solution.cs" />
     <Compile Include="Utilities\PuzzleType.cs" />
   </ItemGroup>

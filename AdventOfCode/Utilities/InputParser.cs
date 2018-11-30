@@ -1,4 +1,6 @@
-﻿namespace AdventOfCode
+﻿using AdventOfCode.Models;
+
+namespace AdventOfCode.Utilities
 {
     public class InputParser
     {
