@@ -36,17 +36,17 @@ namespace AdventOfCode
 
         public static PuzzleRequest GetPuzzleType(PuzzleRequest puzzleRequest)
         {
-            var inputInt = 1;
+            var input = "";
 
             Console.Write("Would you like to see the solution, problem, or input? ");
-            inputInt = Convert.ToInt32(Console.ReadLine());
-            if (Enum.IsDefined(typeof(PuzzleType), inputInt))
+            input = Console.ReadLine().ToLower();
+            if (Enum.IsDefined(typeof(PuzzleType), input))
             {
-                puzzleRequest.InputType = (PuzzleType)inputInt;
+                puzzleRequest.InputType = (PuzzleType)Enum.Parse(typeof(PuzzleType), input);
             }
             else
             {
-                puzzleRequest.InputType = PuzzleType.Solution;
+                puzzleRequest.InputType = PuzzleType.solution;
             }
 
             return puzzleRequest;

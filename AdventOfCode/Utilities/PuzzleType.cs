@@ -2,8 +2,8 @@
 {
     public enum PuzzleType
     {
-        Solution,
-        Problem,
-        Input
+        solution,
+        problem,
+        input
     }
 }

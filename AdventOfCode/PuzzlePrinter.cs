@@ -11,17 +11,17 @@ namespace AdventOfCode
         {
             switch (puzzleRequest.InputType)
             {
-                case PuzzleType.Solution:
+                case PuzzleType.solution:
                 {
                     PrintSolution(puzzleRequest);
                     break;
                 }
-                case PuzzleType.Problem:
+                case PuzzleType.problem:
                 {
                     PrintProblem(puzzleRequest);
                     break;
                 }
-                case PuzzleType.Input:
+                case PuzzleType.input:
                 {
                     PrintInput(puzzleRequest);
                     break;
@@ -33,7 +33,7 @@ namespace AdventOfCode
                 }
             }
         }
-
+        
         public void PrintSolution(PuzzleRequest puzzleRequest)
         {
             try
