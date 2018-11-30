@@ -44,11 +44,11 @@ namespace AdventOfCode
             }
             catch (RuntimeBinderException)
             {
-                Console.WriteLine("The requested problem does not exist");
+                Console.WriteLine("The requested solution does not exist");
             }
             catch (NullReferenceException)
             {
-                Console.WriteLine("The requested problem does not exist");
+                Console.WriteLine("The requested solution does not exist");
             }
 
         }
@@ -60,9 +60,9 @@ namespace AdventOfCode
                 var solutionProblem = System.IO.File.ReadAllText($"../..\\Problems\\{puzzleRequest.ProblemId}{puzzleRequest.PartId}.txt");
                 Console.Write($"The problem for {puzzleRequest.InputId} is: {solutionProblem}");
             }
-            catch (Exception e)
+            catch (NullReferenceException)
             {
-                Console.WriteLine(e);
+                Console.WriteLine("The requested problem file does not exist");
                 throw;
             }
         }
@@ -74,9 +74,9 @@ namespace AdventOfCode
                 var solutionInput = System.IO.File.ReadAllText($"../..\\Inputs\\{puzzleRequest.ProblemId}{puzzleRequest.PartId}.txt");
                 Console.Write($"The input for {puzzleRequest.InputId} is: {solutionInput}");
             }
-            catch (Exception e)
+            catch (NullReferenceException)
             {
-                Console.WriteLine(e);
+                Console.WriteLine("The requested problem file does not exist");
                 throw;
             }
         }
