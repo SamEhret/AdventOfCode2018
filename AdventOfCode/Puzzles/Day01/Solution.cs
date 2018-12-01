@@ -24,16 +24,18 @@ namespace AdventOfCode.Puzzles.Day01
             var inputList = GetInputPath();
             var sumList = new List<int>();
             var currentSum = 0;
+            var looping = true;
 
-            while (!sumList.Exists(x => x == currentSum))
+            while (looping)
             {
                 foreach (var line in inputList)
                 {
                     sumList.Add(currentSum);
                     currentSum += Parse(line);
-                    
+
                     if (sumList.Exists(x => x == currentSum))
                     {
+                        looping = false;
                         break;
                     }
                 }
