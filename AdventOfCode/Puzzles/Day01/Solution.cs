@@ -13,14 +13,7 @@ namespace AdventOfCode.Puzzles.Day01
 
             foreach (var line in inputList)
             {
-                if (line[0] == '+')
-                {
-                    sum += Parse(line.Substring(1));
-                }
-                else
-                {
-                    sum += Parse(line);
-                }
+                sum += Parse(line);
             }
 
             return sum;
@@ -36,17 +29,9 @@ namespace AdventOfCode.Puzzles.Day01
             {
                 foreach (var line in inputList)
                 {
-                    if (line[0] == '+')
-                    {
-                        sumList.Add(currentSum);
-                        currentSum += Parse(line.Substring(1));
-                    }
-                    else
-                    {
-                        sumList.Add(currentSum);
-                        currentSum += Parse(line);
-                    }
-
+                    sumList.Add(currentSum);
+                    currentSum += Parse(line);
+                    
                     if (sumList.Exists(x => x == currentSum))
                     {
                         break;
