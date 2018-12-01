@@ -33,7 +33,7 @@ namespace AdventOfCode.Puzzles.Day01
                     sumList.Add(currentSum);
                     currentSum += Parse(line);
 
-                    if (sumList.Exists(x => x == currentSum))
+                    if (sumList.Contains(currentSum))
                     {
                         looping = false;
                         break;
