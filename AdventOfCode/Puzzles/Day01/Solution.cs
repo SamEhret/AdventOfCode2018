@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using AdventOfCode.Utilities;
 using static System.Int32;
 
