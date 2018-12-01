@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using AdventOfCode.Utilities;
 using static System.Int32;
 
@@ -29,7 +30,7 @@ namespace AdventOfCode.Puzzles.Day01
         public static int Part2()
         {
             var inputList = GetInputPath();
-            var sumList = new List<int>(){};
+            var sumList = new List<int>();
             var currentSum = 0;
 
             while (!sumList.Exists(x => x == currentSum))
