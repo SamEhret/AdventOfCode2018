@@ -26,14 +26,40 @@ namespace AdventOfCode.Puzzles.Day01
             return sum;
         }
 
-        public static string Part2()
+        public static int Part2()
         {
-            return null;
+            var inputList = GetInputPath();
+            var sumList = new List<int>(){};
+            var currentSum = 0;
+
+            while (!sumList.Exists(x => x == currentSum))
+            {
+                foreach (var line in inputList)
+                {
+                    if (line[0] == '+')
+                    {
+                        sumList.Add(currentSum);
+                        currentSum += Parse(line.Substring(1));
+                    }
+                    else
+                    {
+                        sumList.Add(currentSum);
+                        currentSum += Parse(line);
+                    }
+
+                    if (sumList.Exists(x => x == currentSum))
+                    {
+                        break;
+                    }
+                }
+            }
+            
+            return currentSum;
         }
 
         public static List<string> GetInputPath()
         {
-            var inputPath = ($"../..\\Puzzles\\Day01\\Input.txt");
+            var inputPath = ("../..\\Puzzles\\Day01\\Input.txt");
             var inputList = new FileReader().ReadInputToList(inputPath);
 
             return inputList;
