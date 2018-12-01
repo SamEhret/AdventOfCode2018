@@ -5,9 +5,9 @@ namespace AdventOfCode.Utilities
 {
     public class FileReader
     {
-        public List<string> ReadFileToList(string filePath)
+        public List<string> ReadInputToList(string inputPath)
         {
-            var fileRead = File.ReadAllLines(filePath);
+            var fileRead = File.ReadAllLines(inputPath);
             var fileList = new List<string>(fileRead);
 
             return fileList;

@@ -35,7 +35,7 @@ namespace AdventOfCode
 
         public static PuzzleRequest GetPuzzleType(PuzzleRequest puzzleRequest)
         {
-            Console.Write("Would you like to see the solution, problem, or input? ");
+            Console.Write("Would you like to see the Solution, Problem, or Input? ");
             var input = Console.ReadLine();
 
             if (Enum.IsDefined(typeof(PuzzleType), input))

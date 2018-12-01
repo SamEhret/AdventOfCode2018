@@ -71,7 +71,7 @@ namespace AdventOfCode.Utilities
         {
             try
             {
-                var solutionInput = System.IO.File.ReadAllText($"../..\\Puzzles\\Day{puzzleRequest.ProblemId}\\InputPart{puzzleRequest.PartId}.txt");
+                var solutionInput = System.IO.File.ReadAllText($"../..\\Puzzles\\Day{puzzleRequest.ProblemId}\\Input.txt");
                 Console.Write($"The input for {puzzleRequest.InputId} is: {solutionInput}");
             }
             catch (ArgumentNullException)

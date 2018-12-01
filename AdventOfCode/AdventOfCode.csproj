@@ -68,6 +68,7 @@
     <Compile Include="Puzzles\Day04\Solution.cs" />
     <Compile Include="Puzzles\Day03\Solution.cs" />
     <Compile Include="Puzzles\Day02\Solution.cs" />
+    <Compile Include="Utilities\FileReader.cs" />
     <Compile Include="Utilities\Padding.cs" />
     <Compile Include="Utilities\PuzzlePrinter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -81,8 +82,7 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Content Include="Puzzles\Day01\InputPart1.txt" />
-    <Content Include="Puzzles\Day01\InputPart2.txt" />
+    <Content Include="Puzzles\Day01\Input.txt" />
     <Content Include="Puzzles\Day01\ProblemPart1.txt" />
     <Content Include="Puzzles\Day01\ProblemPart2.txt" />
     <Content Include="Puzzles\Day11\InputPart1.txt" />
