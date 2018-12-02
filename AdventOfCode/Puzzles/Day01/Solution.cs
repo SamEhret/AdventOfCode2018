@@ -8,7 +8,7 @@ namespace AdventOfCode.Puzzles.Day01
     {
         public static int Part1()
         {
-            var inputList = GetInputList();
+            var inputList = InputReader.ReadInputToList("Day01");
             var sum = 0;
 
             foreach (var line in inputList)
@@ -21,7 +21,7 @@ namespace AdventOfCode.Puzzles.Day01
 
         public static int Part2()
         {
-            var inputList = GetInputList();
+            var inputList = InputReader.ReadInputToList("Day01");
             var sumList = new List<int>();
             var currentSum = 0;
             var looping = true;
@@ -42,14 +42,6 @@ namespace AdventOfCode.Puzzles.Day01
             }
             
             return currentSum;
-        }
-
-        public static List<string> GetInputList()
-        {
-            var inputPath = ("../..\\Puzzles\\Day01\\Input.txt");
-            var inputList = new FileReader().ReadInputToList(inputPath);
-
-            return inputList;
         }
     }
 }

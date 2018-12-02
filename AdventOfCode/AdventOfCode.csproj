@@ -69,6 +69,7 @@
     <Compile Include="Puzzles\Day03\Solution.cs" />
     <Compile Include="Puzzles\Day02\Solution.cs" />
     <Compile Include="Utilities\FileReader.cs" />
+    <Compile Include="Utilities\InputReader.cs" />
     <Compile Include="Utilities\Padding.cs" />
     <Compile Include="Utilities\PuzzlePrinter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
