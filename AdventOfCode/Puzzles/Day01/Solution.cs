@@ -22,7 +22,7 @@ namespace AdventOfCode.Puzzles.Day01
         public static int Part2()
         {
             var inputList = InputReader.ReadInputToList("Day01");
-            var sumList = new List<int>();
+            var sumList = new HashSet<int>();
             var currentSum = 0;
             var looping = true;
 
