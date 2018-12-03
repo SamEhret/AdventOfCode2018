@@ -6,7 +6,7 @@ namespace AdventOfCode.Utilities
     {
         public static List<string> ReadInputToList(string day)
         {
-            var inputPath = ($"../..\\Puzzles\\{day}\\Input.txt");
+            var inputPath = ($"../../..\\AdventOfCode\\Puzzles\\{day}\\Input.txt");
             var inputList = new FileReader().ReadInputToList(inputPath);
 
             return inputList;
