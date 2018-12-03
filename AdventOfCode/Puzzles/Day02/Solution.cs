@@ -7,7 +7,7 @@ namespace AdventOfCode.Puzzles.Day02
     {
         public static int Part1()
         {
-            var inputList = InputReader.ReadInputToList("Day01");
+            var inputList = InputReader.ReadInputToList("Day02");
             var twoCount = 0;
             var threeCount = 0;
             var checkSum = 0;
