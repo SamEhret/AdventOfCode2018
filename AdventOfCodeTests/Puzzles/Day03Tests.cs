@@ -1,10 +1,10 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using AdventOfCode.Puzzles.Day01;
+using AdventOfCode.Puzzles.Day03;
 
 namespace AdventOfCodeTests.Puzzles
 {
     [TestClass]
-    public class Day01Tests
+    public class Day03Tests
     {
         [TestMethod]
         public void TestPartOneSolutionIsCorrect()
@@ -14,7 +14,7 @@ namespace AdventOfCodeTests.Puzzles
             var solution = Solution.Part1();
 
             // Assert
-            Assert.AreEqual(442, solution);
+            Assert.AreEqual(110195, solution);
         }
 
         [TestMethod]
@@ -25,7 +25,7 @@ namespace AdventOfCodeTests.Puzzles
             var solution = Solution.Part2();
 
             // Assert
-            Assert.AreEqual(59908, solution);
+            Assert.AreEqual(894, solution);
         }
     }
 }

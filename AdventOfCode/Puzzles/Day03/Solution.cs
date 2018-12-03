@@ -30,7 +30,7 @@ namespace AdventOfCode.Puzzles.Day03
         {
             var squareDict = CreateDictionary();
             var inputList = InputReader.ReadInputToList("Day03");
-            var regex = new Regex(@"\s+(\d+),(\d+):\s+(\d+)x(\d+)");
+            var regex = new Regex(@"(\d+)\s+@\s+(\d+),(\d+):\s+(\d+)x(\d+)");
 
             foreach (var line in inputList)
             {
