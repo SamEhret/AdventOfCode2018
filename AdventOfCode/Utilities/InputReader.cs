@@ -11,5 +11,13 @@ namespace AdventOfCode.Utilities
 
             return inputList;
         }
+
+        public static string ReadInputToString(string day)
+        {
+            var inputPath = ($"../../..\\AdventOfCode\\Puzzles\\{day}\\Input.txt");
+            var inputString = new FileReader().ReadInputToString(inputPath);
+
+            return inputString;
+        }
     }
 }

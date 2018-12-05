@@ -12,5 +12,12 @@ namespace AdventOfCode.Utilities
 
             return fileList;
         }
+
+        public string ReadInputToString(string inputPath)
+        {
+            var fileString = File.ReadAllText(inputPath);
+
+            return fileString;
+        }
     }
 }
