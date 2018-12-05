@@ -26,7 +26,8 @@ namespace AdventOfCode.Puzzles.Day04
             var sleepDictionary = new DictionaryMethods().CreateSleepDictionary(new DictionaryMethods().CreateActionList());
 
             var sortedDict = sleepDictionary
-                .OrderByDescending(x => x.Value.Values.Max())
+                .Where(x => x.Value.Values.Any())
+                .OrderByDescending (x => x.Value.Max(z => z.Value))
                 .ToDictionary(x => x.Key, x => x.Value
                     .OrderByDescending(y => y.Value)
                     .ToDictionary(y => y.Key, y => y.Value));
@@ -34,7 +35,7 @@ namespace AdventOfCode.Puzzles.Day04
             var mostSleptGuard = sortedDict.First();
             var guardTimesMinute = mostSleptGuard.Key * mostSleptGuard.Value.First().Key;
 
-            return 0;
+            return guardTimesMinute;
         }
     }
 }

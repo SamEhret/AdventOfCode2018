@@ -25,7 +25,7 @@ namespace AdventOfCodeTests.Puzzles
             var solution = Solution.Part2();
 
             // Assert
-            Assert.AreEqual(null, solution);
+            Assert.AreEqual(36371, solution);
         }
     }
 }
