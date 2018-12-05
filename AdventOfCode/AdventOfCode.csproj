@@ -44,6 +44,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdventOfCode.cs" />
+    <Compile Include="Puzzles\Day04\Utilities\Action.cs" />
+    <Compile Include="Puzzles\Day04\Utilities\DictionaryMethods.cs" />
+    <Compile Include="Puzzles\Day04\Utilities\EventEnum.cs" />
     <Compile Include="Puzzles\Day11\Solution.cs" />
     <Compile Include="Puzzles\Day12\Solution.cs" />
     <Compile Include="Puzzles\Day13\Solution.cs" />
